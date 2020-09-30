@@ -4,5 +4,8 @@
       "name": "Custom Types",
       "route": "CustomTypes"
     }
-  ]
+  ],
+  "customTypes": {
+    "input": ""
+  }
 }

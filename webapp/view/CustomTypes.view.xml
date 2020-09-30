@@ -4,6 +4,8 @@
 
     <Page title="{i18n>titleCustomTypes}" showNavButton="true" navButtonPress="onNavBack">
         <content>
+            <Input id="emailInput" value="{path:'/customTypes/input', model:'util', type:'private.sandbox.util.types.Email'}"/>
+            <Button text="Validieren" press="onValidate"/>
         </content>
     </Page>
 </mvc:View>
