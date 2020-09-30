@@ -1,0 +1,23 @@
+<mvc:View controllerName="private.sandbox.controller.Overview"
+          xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+          xmlns="sap.m">
+
+    <Page title="{i18n>titleOverview}">
+        <content>
+            <Table items="{util>/overviewItems}">
+                <columns>
+                    <Column>
+                        <Text text="{i18n>colTopic}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem type="Navigation" press="onNavigateToTopic">
+                        <cells>
+                            <Text text="{util>name}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

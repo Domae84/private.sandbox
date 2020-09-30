@@ -1,0 +1,128 @@
+{
+  "_version": "1.12.0",
+  "sap.app": {
+    "id": "private.sandbox",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "sourceTemplate": {
+      "id": "ui5template.basicSAPUI5ApplicationProject",
+      "version": "1.40.12"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/Z_ESP_EMPL_CDS/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      },
+      "util": {
+        "uri": "model/util.json",
+        "type": "JSON"
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "rootView": {
+      "viewName": "private.sandbox.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "Basic"
+    },
+    "dependencies": {
+      "minUI5Version": "1.65.6",
+      "libs": {
+        "sap.ui.layout": {},
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "util": {
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "util"
+      },
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "private.sandbox.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "settings": {
+          "defaultBindingMode": "TwoWay",
+          "defaultUpdateMethod": "Put"
+        },
+        "preload": true
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "private.sandbox.view",
+        "controlAggregation": "pages",
+        "controlId": "app"
+      },
+      "routes": [
+        {
+          "name": "Overview",
+          "pattern": "",
+          "target": "Overview"
+        },
+        {
+          "name": "CustomTypes",
+          "pattern": "CustomTypes",
+          "target": "CustomTypes"
+        }
+      ],
+      "targets": {
+        "Overview": {
+          "transition": "fade",
+          "viewName": "Overview",
+          "viewLevel": "1"
+        },
+        "CustomTypes": {
+          "transition": "fade",
+          "viewName": "CustomTypes",
+          "viewLevel": "2"
+        }
+      }
+    }
+  }
+}
