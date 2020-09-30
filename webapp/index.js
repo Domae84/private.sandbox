@@ -1,7 +1,7 @@
-sap.ui.define([
-    "sap/ui/core/ComponentContainer",
-    "sap/m/Shell"
-], function (ComponentContainer, Shell) {
+sap.ui.define(["sap/ui/core/ComponentContainer", "sap/m/Shell"], function (
+    ComponentContainer,
+    Shell
+) {
     "use strict";
     new Shell({
         app: new ComponentContainer({

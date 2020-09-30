@@ -14,15 +14,7 @@ sap.ui.define(
         "sap/m/Dialog",
         "sap/m/Text"
     ],
-    function (
-        Controller,
-        History,
-        Fragment,
-        MessageToast,
-        MessageBox,
-        Dialog,
-        Text
-    ) {
+    function (Controller, History, Fragment, MessageToast, MessageBox, Dialog, Text) {
         "use strict";
 
         // Public Section
@@ -418,7 +410,9 @@ sap.ui.define(
                 return aModelValues.concat(aChangeValues);
             }
             for (let sChangeValue of aChangeValues) {
-                const iIndex = aModelValues.findIndex((sModelValue) => sModelValue === sChangeValue);
+                const iIndex = aModelValues.findIndex(
+                    (sModelValue) => sModelValue === sChangeValue
+                );
                 if (iIndex !== -1) aModelValues.splice(iIndex, 1);
             }
             return aModelValues;
