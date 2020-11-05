@@ -12,9 +12,10 @@
                 return sValue;
             },
             validateValue: function (sValue) {
-                if (sValue === "test")
-                    throw new ValidateException(`${sValue} ist keine gültige Email!`);
-                debugger;
+                const sRegEx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                const bValidEmail = sRegEx.test(String(sValue).toLowerCase());
+
+                if (!bValidEmail) throw new ValidateException(`${sValue} ist keine gültige Email!`);
             }
         });
     });

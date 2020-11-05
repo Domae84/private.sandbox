@@ -109,6 +109,11 @@
           "name": "CustomTypes",
           "pattern": "CustomTypes",
           "target": "CustomTypes"
+        },
+        {
+          "name": "CustomFilter",
+          "pattern": "CustomFilter",
+          "target": "CustomFilter"
         }
       ],
       "targets": {
@@ -120,6 +125,11 @@
         "CustomTypes": {
           "transition": "fade",
           "viewName": "CustomTypes",
+          "viewLevel": "2"
+        },
+        "CustomFilter": {
+          "transition": "fade",
+          "viewName": "CustomFilter",
           "viewLevel": "2"
         }
       }

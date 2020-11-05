@@ -3,6 +3,10 @@
     {
       "name": "Custom Types",
       "route": "CustomTypes"
+    },
+    {
+      "name": "GridTable-Like Filtering in Responsive Table (sap.m.Table)",
+      "route": "CustomFilter"
     }
   ],
   "customTypes": {
