@@ -11,5 +11,8 @@
   ],
   "customTypes": {
     "input": ""
+  },
+  "customFilter": {
+    "jsonTable": true
   }
 }

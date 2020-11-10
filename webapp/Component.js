@@ -22,6 +22,15 @@ sap.ui.define(
 
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
+                this.initUsers();
+            },
+
+            initUsers: async function () {
+                const oUtilModel = this.getModel("util");
+                await oUtilModel.dataLoaded();
+                const oUserResult = await fetch("https://jsonplaceholder.typicode.com/users");
+                const aUsers = await oUserResult.json();
+                oUtilModel.setProperty("/users", aUsers);
             }
         });
     }

@@ -1,9 +1,89 @@
 <mvc:View controllerName="private.sandbox.controller.CustomFilter"
           xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-          xmlns="sap.m">
+          xmlns="sap.m" xmlns:custom="private.sandbox.util.controls"
+          xmlns:smartTable="sap.ui.comp.smarttable" xmlns:core="sap.ui.core">
 
     <Page title="{i18n>titleCustomFilter}" showNavButton="true" navButtonPress="onNavBack">
         <content>
+            <Toolbar>
+                <SegmentedButton selectionChange="onChange">
+                    <items>
+                        <SegmentedButtonItem key="json" text="sap.m.Table" icon="sap-icon://history"/>
+                        <SegmentedButtonItem key="odata" icon="sap-icon://energy-saving-lightbulb" text="Smarttable"/>
+                    </items>
+                </SegmentedButton>
+            </Toolbar>
+
+            <Table items="{util>/users}" visible="{util>/customFilter/jsonTable}">
+                <columns>
+                    <custom:CustomColumn bindingProperty="name">
+                        <Text text="Name"/>
+                    </custom:CustomColumn>
+                    <custom:CustomColumn bindingProperty="username">
+                        <Text text="Username"/>
+                    </custom:CustomColumn>
+                    <custom:CustomColumn bindingProperty="email">
+                        <Text text="Email"/>
+                    </custom:CustomColumn>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{util>name}"/>
+                            <Text text="{util>username}"/>
+                            <Text text="{util>email}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+
+            <smartTable:SmartTable entitySet="ZTUT_EMPL_MOVIES" tableType="ResponsiveTable" useVariantManagement="false"
+                                   useTablePersonalisation="true" header="Movies" showRowCount="true"
+                                   enableAutoBinding="true" demandPopin="true"
+                                   visible="{= !${util>/customFilter/jsonTable} }">
+                <Table>
+                    <columns>
+                        <custom:CustomColumn bindingProperty="MOVIE_ID">
+                            <custom:customData>
+                                <core:CustomData key="p13nData"
+                                                 value='\{"columnKey": "MOVIE_ID","columnIndex":"0", "leadingProperty": "MOVIE_ID", "type": "string"}'/>
+                            </custom:customData>
+                            <Text text="MOVIE_ID"/>
+                        </custom:CustomColumn>
+                        <custom:CustomColumn bindingProperty="EMPL_ID">
+                            <custom:customData>
+                                <core:CustomData key="p13nData"
+                                                 value='\{"columnKey": "EMPL_ID","columnIndex":"1", "leadingProperty": "EMPL_ID", "type": "string"}'/>
+                            </custom:customData>
+                            <Text text="EMPL_ID"/>
+                        </custom:CustomColumn>
+                        <custom:CustomColumn bindingProperty="NAME">
+                            <custom:customData>
+                                <core:CustomData key="p13nData"
+                                                 value='\{"columnKey": "NAME","columnIndex":"2", "leadingProperty": "NAME", "type": "string"}'/>
+                            </custom:customData>
+                            <Text text="NAME"/>
+                        </custom:CustomColumn>
+                        <custom:CustomColumn bindingProperty="SALARY">
+                            <custom:customData>
+                                <core:CustomData key="p13nData"
+                                                 value='\{"columnKey": "SALARY","columnIndex":"3", "leadingProperty": "SALARY", "type": "string"}'/>
+                            </custom:customData>
+                            <Text text="SALARY"/>
+                        </custom:CustomColumn>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{MOVIE_ID}"/>
+                                <Text text="{EMPL_ID}"/>
+                                <Text text="{NAME}"/>
+                                <Text text="{SALARY}"/>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </smartTable:SmartTable>
 
         </content>
     </Page>
